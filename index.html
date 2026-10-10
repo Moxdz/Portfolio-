@@ -1,0 +1,543 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Moudeesh C | IT Support Specialist & PC Hardware Technician</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&family=JetBrains+Mono:wght@400;600&display=swap" rel="stylesheet">
+  <style>
+    :root {
+      --bg: #0b0f19;
+      --card-bg: #111827;
+      --card-border: #1f2937;
+      --accent: #2563eb;
+      --accent-glow: rgba(37, 99, 235, 0.15);
+      --text: #f3f4f6;
+      --text-muted: #9ca3af;
+      --tag-bg: #1e293b;
+      --tag-text: #60a5fa;
+      --font-sans: 'Inter', sans-serif;
+      --font-mono: 'JetBrains Mono', monospace;
+    }
+
+    * {
+      box-sizing: border-box;
+      margin: 0;
+      padding: 0;
+    }
+
+    body {
+      background-color: var(--bg);
+      color: var(--text);
+      font-family: var(--font-sans);
+      line-height: 1.6;
+      overflow-x: hidden;
+    }
+
+    /* Container */
+    .container {
+      max-width: 1000px;
+      margin: 0 auto;
+      padding: 0 1.5rem;
+    }
+
+    /* Header / Nav */
+    header {
+      position: sticky;
+      top: 0;
+      background: rgba(11, 15, 25, 0.85);
+      backdrop-filter: blur(12px);
+      border-bottom: 1px solid var(--card-border);
+      z-index: 100;
+    }
+
+    nav {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      padding: 1rem 0;
+    }
+
+    .logo {
+      font-family: var(--font-mono);
+      font-weight: 600;
+      color: #fff;
+      font-size: 1.1rem;
+      letter-spacing: -0.5px;
+    }
+
+    .logo span {
+      color: var(--tag-text);
+    }
+
+    nav ul {
+      display: flex;
+      gap: 1.5rem;
+      list-style: none;
+    }
+
+    nav a {
+      color: var(--text-muted);
+      text-decoration: none;
+      font-size: 0.9rem;
+      font-weight: 500;
+      transition: color 0.2s ease;
+    }
+
+    nav a:hover {
+      color: #fff;
+    }
+
+    /* Hero Section */
+    .hero {
+      padding: 5rem 0 3.5rem;
+    }
+
+    .badge {
+      display: inline-block;
+      font-family: var(--font-mono);
+      font-size: 0.75rem;
+      padding: 0.3rem 0.8rem;
+      background: var(--tag-bg);
+      color: var(--tag-text);
+      border-radius: 9999px;
+      border: 1px solid #334155;
+      margin-bottom: 1.2rem;
+    }
+
+    .hero h1 {
+      font-size: 2.75rem;
+      line-height: 1.15;
+      font-weight: 700;
+      margin-bottom: 0.75rem;
+      letter-spacing: -0.02em;
+    }
+
+    .hero h2 {
+      font-size: 1.3rem;
+      color: var(--text-muted);
+      font-weight: 400;
+      margin-bottom: 1.5rem;
+    }
+
+    .hero p {
+      max-width: 720px;
+      color: #d1d5db;
+      font-size: 1.05rem;
+      margin-bottom: 2rem;
+    }
+
+    .contact-bar {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 1.25rem;
+      align-items: center;
+    }
+
+    .btn {
+      display: inline-flex;
+      align-items: center;
+      gap: 0.5rem;
+      background: var(--accent);
+      color: #fff;
+      padding: 0.65rem 1.4rem;
+      border-radius: 6px;
+      text-decoration: none;
+      font-weight: 500;
+      font-size: 0.95rem;
+      transition: opacity 0.2s ease;
+    }
+
+    .btn:hover {
+      opacity: 0.9;
+    }
+
+    .contact-info {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 1.5rem;
+      color: var(--text-muted);
+      font-size: 0.9rem;
+    }
+
+    .contact-info span {
+      display: flex;
+      align-items: center;
+      gap: 0.4rem;
+    }
+
+    /* Section Global */
+    section {
+      padding: 3rem 0;
+      border-top: 1px solid var(--card-border);
+    }
+
+    .section-title {
+      font-size: 1.6rem;
+      margin-bottom: 2rem;
+      display: flex;
+      align-items: center;
+      gap: 0.75rem;
+    }
+
+    .section-title::after {
+      content: "";
+      height: 1px;
+      flex-grow: 1;
+      background: var(--card-border);
+    }
+
+    /* Skills Grid */
+    .skills-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+      gap: 1.25rem;
+    }
+
+    .skill-card {
+      background: var(--card-bg);
+      border: 1px solid var(--card-border);
+      border-radius: 8px;
+      padding: 1.25rem;
+    }
+
+    .skill-card h3 {
+      font-size: 1rem;
+      margin-bottom: 0.75rem;
+      color: #fff;
+      display: flex;
+      align-items: center;
+      gap: 0.5rem;
+    }
+
+    .skill-card ul {
+      list-style: none;
+      color: var(--text-muted);
+      font-size: 0.875rem;
+      display: flex;
+      flex-direction: column;
+      gap: 0.4rem;
+    }
+
+    /* Experience & Projects (Timeline / Cards) */
+    .experience-list, .project-list {
+      display: flex;
+      flex-direction: column;
+      gap: 1.5rem;
+    }
+
+    .item-card {
+      background: var(--card-bg);
+      border: 1px solid var(--card-border);
+      border-radius: 8px;
+      padding: 1.5rem;
+      transition: border-color 0.2s ease;
+    }
+
+    .item-card:hover {
+      border-color: #374151;
+    }
+
+    .item-header {
+      display: flex;
+      justify-content: space-between;
+      align-items: baseline;
+      flex-wrap: wrap;
+      margin-bottom: 0.5rem;
+    }
+
+    .item-header h3 {
+      font-size: 1.15rem;
+      color: #fff;
+    }
+
+    .item-header .company {
+      color: var(--tag-text);
+      font-weight: 500;
+    }
+
+    .item-header .date {
+      font-family: var(--font-mono);
+      font-size: 0.8rem;
+      color: var(--text-muted);
+    }
+
+    .item-card ul {
+      margin-top: 0.75rem;
+      padding-left: 1.25rem;
+      color: #d1d5db;
+      font-size: 0.92rem;
+      display: flex;
+      flex-direction: column;
+      gap: 0.4rem;
+    }
+
+    /* Education & Certifications */
+    .grid-2 {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 1.5rem;
+    }
+
+    .sub-card {
+      background: var(--card-bg);
+      border: 1px solid var(--card-border);
+      border-radius: 8px;
+      padding: 1.25rem;
+    }
+
+    .sub-card h4 {
+      font-size: 1rem;
+      color: #fff;
+      margin-bottom: 0.25rem;
+    }
+
+    .sub-card p {
+      color: var(--text-muted);
+      font-size: 0.85rem;
+      margin-bottom: 0.25rem;
+    }
+
+    .score-badge {
+      display: inline-block;
+      font-family: var(--font-mono);
+      font-size: 0.75rem;
+      background: #064e3b;
+      color: #34d399;
+      padding: 0.15rem 0.5rem;
+      border-radius: 4px;
+      font-weight: 600;
+    }
+
+    /* Footer */
+    footer {
+      border-top: 1px solid var(--card-border);
+      padding: 2.5rem 0;
+      text-align: center;
+      color: var(--text-muted);
+      font-size: 0.85rem;
+    }
+
+    @media (max-width: 768px) {
+      .hero h1 { font-size: 2rem; }
+      nav ul { display: none; }
+      .grid-2 { grid-template-columns: 1fr; }
+    }
+  </style>
+</head>
+<body>
+
+  <header>
+    <div class="container">
+      <nav>
+        <div class="logo">MC<span>.tech</span></div>
+        <ul>
+          <li><a href="#about">About</a></li>
+          <li><a href="#skills">Skills</a></li>
+          <li><a href="#experience">Experience</a></li>
+          <li><a href="#projects">Projects</a></li>
+          <li><a href="#education">Education</a></li>
+          <li><a href="#contact">Contact</a></li>
+        </ul>
+      </nav>
+    </div>
+  </header>
+
+  <main class="container">
+    <!-- Hero / About -->
+    <section class="hero" id="about" style="border-top: none;">
+      <span class="badge">IT Support & Hardware Specialist</span>
+      <h1>Moudeesh C</h1>
+      <h2>Desktop & PC Hardware Technician</h2>
+      <p>
+        Results-oriented specialist with hands-on experience in enterprise desktop support, custom PC assembly, hardware diagnostics, Linux & Windows administration, and network troubleshooting. Focused on minimizing downtime through proactive maintenance and rapid incident resolution.
+      </p>
+      <div class="contact-bar">
+        <a href="mailto:moudeesh@gmail.com" class="btn">Get in Touch</a>
+        <div class="contact-info">
+          <span>📍 Erode, Tamil Nadu, India</span>
+          <span>📞 +91 63838 97448</span>
+          <span>✉️ moudeesh@gmail.com</span>
+        </div>
+      </div>
+    </section>
+
+    <!-- Skills Section -->
+    <section id="skills">
+      <h2 class="section-title">Technical Competencies</h2>
+      <div class="skills-grid">
+        <div class="skill-card">
+          <h3>Hardware & Systems</h3>
+          <ul>
+            <li>Custom PC Assembly & Builds</li>
+            <li>Hardware Diagnostics & Upgrades</li>
+            <li>Printer & Peripheral Servicing</li>
+            <li>Preventive Maintenance</li>
+          </ul>
+        </div>
+        <div class="skill-card">
+          <h3>OS & Administration</h3>
+          <ul>
+            <li>Windows Administration (10/11)</li>
+            <li>Linux OS (Ubuntu/Debian, CLI)</li>
+            <li>OS Deployment & Recovery</li>
+            <li>Driver Management</li>
+          </ul>
+        </div>
+        <div class="skill-card">
+          <h3>Networking & Remote Support</h3>
+          <ul>
+            <li>AnyDesk, TeamViewer, UltraViewer</li>
+            <li>Network Diagnostics (LAN/WAN, TCP/IP)</li>
+            <li>Incident Diagnostics & Triage</li>
+            <li>End-User Tech Support</li>
+          </ul>
+        </div>
+        <div class="skill-card">
+          <h3>Software & Tools</h3>
+          <ul>
+            <li>Python</li>
+            <li>HTML5 & CSS</li>
+            <li>WordPress CMS</li>
+            <li>Microsoft Excel & Google Sheets</li>
+          </ul>
+        </div>
+      </div>
+    </section>
+
+    <!-- Experience Section -->
+    <section id="experience">
+      <h2 class="section-title">Work Experience</h2>
+      <div class="experience-list">
+        
+        <div class="item-card">
+          <div class="item-header">
+            <div>
+              <h3>Service Engineer</h3>
+              <span class="company">BYOS Memory Stack Private Limited</span>
+            </div>
+            <span class="date">August 2025 – Present</span>
+          </div>
+          <ul>
+            <li>Deliver end-to-end technical support for desktops, laptops, multi-function printers, and peripheral devices across hardware, OS, and network connectivity layers.</li>
+            <li>Assemble, configure, upgrade, and benchmark custom computer systems and workstations, executing OS deployments (Windows/Linux) and driver installations.</li>
+            <li>Provide rapid on-site and remote user support using AnyDesk, TeamViewer, and UltraViewer to execute preventive maintenance routines and ticket resolution.</li>
+            <li>Execute component-level diagnostics and bottleneck analysis to mitigate recurring hardware issues.</li>
+          </ul>
+        </div>
+
+        <div class="item-card">
+          <div class="item-header">
+            <div>
+              <h3>Associate</h3>
+              <span class="company">Hashtag Infosystems</span>
+            </div>
+            <span class="date">June 2024 – December 2024</span>
+          </div>
+          <ul>
+            <li>Conducted targeted web and secondary research across corporate repositories, directories, and LinkedIn to collect and verify enterprise company profiles.</li>
+            <li>Maintained structured B2B lead databases with verified contact points, titles, and phone records in Microsoft Excel and Google Sheets.</li>
+            <li>Performed data cleansing, validation, and deduplication routines to protect database accuracy.</li>
+          </ul>
+        </div>
+
+        <div class="item-card">
+          <div class="item-header">
+            <div>
+              <h3>Admin Assistant</h3>
+              <span class="company">SCM Garments Pvt Ltd</span>
+            </div>
+            <span class="date">July 2020 – December 2020</span>
+          </div>
+          <ul>
+            <li>Maintained inventory logs, packing schedules, and dispatch verification records to support warehouse operations.</li>
+            <li>Streamlined documentation tracking to improve materials management and workflow efficiency.</li>
+          </ul>
+        </div>
+
+      </div>
+    </section>
+
+    <!-- Projects Section -->
+    <section id="projects">
+      <h2 class="section-title">Featured Projects</h2>
+      <div class="project-list">
+        
+        <div class="item-card">
+          <div class="item-header">
+            <div>
+              <h3>Vehicle Count and Classification System</h3>
+              <span class="company">Krish Tec (Wireless R&D), Coimbatore</span>
+            </div>
+            <span class="date">Academic R&D</span>
+          </div>
+          <ul>
+            <li>Engineered a real-time computer vision system using the YOLO (You Only Look Once) deep learning model.</li>
+            <li>Accurately detected, classified, and tallied multiple vehicle categories from video streams for automated traffic analytics.</li>
+          </ul>
+        </div>
+
+        <div class="item-card">
+          <div class="item-header">
+            <div>
+              <h3>Responsive Web Development & CMS</h3>
+              <span class="company">Arima Tech, Coimbatore</span>
+            </div>
+            <span class="date">Internship</span>
+          </div>
+          <ul>
+            <li>Completed front-end development internship configuring responsive layouts, custom themes, and page structures.</li>
+            <li>Implemented dynamic design elements using WordPress, HTML5, and CSS across multiple device breakpoints.</li>
+          </ul>
+        </div>
+
+      </div>
+    </section>
+
+    <!-- Education & Credentials Section -->
+    <section id="education">
+      <h2 class="section-title">Education & Credentials</h2>
+      <div class="grid-2">
+        <div class="sub-card">
+          <h4>Master of Computer Applications (MCA)</h4>
+          <p>Dr. SNS Rajalakshmi College of Arts and Science • 2024</p>
+          <span class="score-badge">85% Aggregate</span>
+        </div>
+        <div class="sub-card">
+          <h4>Bachelor of Science in Computer Science (B.Sc)</h4>
+          <p>Gobi Arts and Science College • 2022</p>
+          <span class="score-badge">79% Aggregate</span>
+        </div>
+        <div class="sub-card">
+          <h4>Higher Secondary Certificate (HSC)</h4>
+          <p>Sri Pariyur Amman Nursery & Higher Secondary School • 2019</p>
+          <span class="score-badge">70% Aggregate</span>
+        </div>
+        <div class="sub-card">
+          <h4>Certificates & Leadership</h4>
+          <p>• NCC 'A' Certificate (Ministry of Defence)</p>
+          <p>• Presented paper: <em>Cloud Computing Trends</em> (National Conference on Recent Trends in IT)</p>
+        </div>
+      </div>
+    </section>
+
+    <!-- Contact Section -->
+    <section id="contact" style="text-align: center; padding: 4rem 0;">
+      <h2 style="font-size: 2rem; margin-bottom: 1rem;">Let's Work Together</h2>
+      <p style="color: var(--text-muted); max-width: 500px; margin: 0 auto 2rem;">
+        Available for IT support, systems administration, and hardware engineering opportunities.
+      </p>
+      <a href="mailto:moudeesh@gmail.com" class="btn" style="padding: 0.8rem 2rem; font-size: 1rem;">moudeesh@gmail.com</a>
+    </section>
+  </main>
+
+  <footer>
+    <div class="container">
+      <p>© 2026 Moudeesh C • Built for high performance & clean delivery.</p>
+    </div>
+  </footer>
+
+</body>
+</html>
